@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BMk-Ac-rFO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Albums View Controller-->
@@ -119,13 +120,58 @@
                                 <rect key="frame" x="0.0" y="214" width="320" height="354"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" id="Yn6-Fm-8PM" customClass="TrackCell" customModule="AlbumArt" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" rowHeight="50" id="Yn6-Fm-8PM" customClass="TrackCell" customModule="AlbumArt" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yn6-Fm-8PM" id="H0D-cW-NGH">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5m-ev-O04" customClass="SVGPlayButton" customModule="SVGPlayButton">
+                                                    <rect key="frame" x="271" y="5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="Kmk-Jt-Zck"/>
+                                                        <constraint firstAttribute="width" constant="40" id="WaB-pg-jU6"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="pressedPlayButton:" destination="Yn6-Fm-8PM" eventType="touchUpInside" id="DEK-MC-xvV"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOG-Qh-cKF">
+                                                    <rect key="frame" x="8" y="8" width="183" height="33"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6L-1u-Hpu">
+                                                    <rect key="frame" x="201" y="8" width="60" height="33"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.49931060119999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="0.99">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="pressedBuyButton:" destination="Yn6-Fm-8PM" eventType="touchUpInside" id="jih-R3-DoU"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KOG-Qh-cKF" firstAttribute="leading" secondItem="H0D-cW-NGH" secondAttribute="leadingMargin" id="39z-kc-uS1"/>
+                                                <constraint firstItem="f5m-ev-O04" firstAttribute="leading" secondItem="j6L-1u-Hpu" secondAttribute="trailing" constant="10" id="3eQ-Uh-37l"/>
+                                                <constraint firstItem="j6L-1u-Hpu" firstAttribute="top" secondItem="H0D-cW-NGH" secondAttribute="topMargin" id="6iS-eS-QY9"/>
+                                                <constraint firstItem="KOG-Qh-cKF" firstAttribute="top" secondItem="H0D-cW-NGH" secondAttribute="topMargin" id="UGs-wH-315"/>
+                                                <constraint firstItem="f5m-ev-O04" firstAttribute="centerY" secondItem="H0D-cW-NGH" secondAttribute="centerY" id="W99-Bw-Pi7"/>
+                                                <constraint firstItem="j6L-1u-Hpu" firstAttribute="leading" secondItem="KOG-Qh-cKF" secondAttribute="trailing" constant="10" id="di3-8X-aLQ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="f5m-ev-O04" secondAttribute="trailing" constant="1.5" id="gVN-WK-hhX"/>
+                                                <constraint firstItem="KOG-Qh-cKF" firstAttribute="bottom" secondItem="H0D-cW-NGH" secondAttribute="bottomMargin" id="nFk-je-nja"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="j6L-1u-Hpu" secondAttribute="bottom" id="sVI-vq-a8n"/>
+                                                <constraint firstItem="f5m-ev-O04" firstAttribute="leading" secondItem="KOG-Qh-cKF" secondAttribute="trailing" constant="80" id="t1Q-r8-gDy"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="buyButton" destination="j6L-1u-Hpu" id="Npj-0z-JIk"/>
+                                            <outlet property="playbutton" destination="f5m-ev-O04" id="oCw-B7-E70"/>
+                                            <outlet property="trackNameLabel" destination="KOG-Qh-cKF" id="0d8-J2-ZK6"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

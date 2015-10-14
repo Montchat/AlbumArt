@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F6CC7AB064C672794CF619B5"
-               BuildableName = "Pods_AlbumArt.framework"
-               BlueprintName = "Pods-AlbumArt"
+               BlueprintIdentifier = "C03B665E6F651AFA23169CF9"
+               BuildableName = "SVGPlayButton.framework"
+               BlueprintName = "SVGPlayButton"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
